@@ -1,0 +1,729 @@
+@charset "UTF-8";
+/* Body */
+body {
+  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+  background-color: #FFFFFF;
+  margin: 0;
+}
+/* Container */
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFFFFF;
+}
+/* Header */
+header {
+  width: 100%;
+  height: 20%;
+  background-color: #5D5E5D;
+  float: left;
+}
+/* home mainpage */
+mainpage {
+  width: 100%;
+  height: 20%;
+  background-color: #F8F8F8;
+  float: left;
+}
+/*Detail mainpage(Listdetail,WriteComment,WorkList) */
+mainpagedetail {
+  width: 100%;
+  height: 40%;
+  margin-bottom: 10px;
+  background-color: #F8F8F8;
+  float: right;
+}
+/* Alternative mainpage */
+mainpageplease {
+  width: 100%;
+  height: 1000px;
+  margin-bottom: 10px;
+  background-color: #F8F8F8;
+  float: right;
+}
+/* footer */
+footer {
+  width: 100%;
+  height: 20%;
+  background-color: #5D5E5D;
+  float: left;
+}
+/* navgation */
+nav {
+  background-color: #5D5E5D;
+  float: right;
+}
+/* navgation button*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5D5E5D;
+  font-size: 26px;
+  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+}
+ul :hover{
+	background-color:black;
+
+}
+ur.messages{
+  font-weight: bold;
+  padding: 1em;
+}
+ur.messages li.success{
+  background-color: lightgreen;
+  padding:1em;
+  margin:0.25em;
+}
+ur.messages li.info{
+  background-color: lightblue;
+  padding:1em;
+  margin:0.25em;
+}
+ur.messages li.warning{
+  background-color: pink;
+  padding:1em;
+  margin:0.25em;
+}
+/* navgation button*/
+li {
+  float: right;
+}
+/* navgation button*/
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* logo*/
+logo {
+  width: 40%;
+  height: 20%;
+  float: left;
+}
+/* logo text*/
+.logotextdiv {
+  width: auto;
+  height: auto;
+}
+.logotext {
+  width: 30%;
+  height: 20%;
+  float: left;
+  color: #fff;
+  font-weight: bold;
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-top: auto;
+  margin-right: auto;
+  text-align: left;
+  padding-top: 15px;
+  font-size: 30px;
+  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+}
+/* logo picture*/
+.logopicture {
+  width: auto;
+  height: auto;
+  max-width: 80px;
+  max-height: 80px;
+}
+.logopicturediv {
+  width: auto;
+  height: auto;
+  float: left;
+}
+/* homepage picture*/
+.mainpagepicture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+.mainpagepicturediv {
+  text-align: center;
+}
+/* footer button*/
+.button {
+  width: 30%;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+  letter-spacing: 2px;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  transition: all 0.3s linear;
+}
+.button:hover {
+  background-color: #6DC7D0;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+/* Copyright*/
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  font-family: "averia-sans-libre";
+  border-top-width: 2px;
+}
+/* WorkList img*/
+.cards {
+   width: auto;
+	height: 110px;
+
+}
+/* WorkList img gallery*/
+.gallery {
+  clear: both;
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 35px;
+  padding-top: 0px;
+  margin-top: -5px;
+  margin-bottom: 0px;
+}
+/* a section in gallery*/
+.thumbnail {
+  width: 23%;
+  text-align: center;
+  float: left;
+  margin-top: 35px;
+  background-color: #5D5E5D;
+  padding-bottom: 20px;
+  margin-left: 1%;
+  margin-right: 1%;
+  border-radius: 3px;
+  padding-top: 20px;
+  border-bottom: 4px solid #6DC7D0;
+}
+/* title in section*/
+.gallery .thumbnail h4 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #FFFFFF;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* Searching*/
+input[type=text], select {
+  width: 70%;
+  padding: 8px 10px;
+  font-size: 15px;
+  margin: 3px 0;
+  display: inline-block;
+}
+search {
+  float: left;
+}
+.searchbutton {
+  padding: 5px 9px;
+  background: #ddd;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.accountbutton {
+  padding: 5px 9px;
+  width:50%;
+  background: #ddd;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+/* img in Listdetail*/
+.cardsindetail {
+  max-width: 650px;
+  display: block;
+  margin: auto;
+}
+/* back button in Listdetail and writeyourcomment*/
+backbutton {
+  height: 20%;
+}
+.bbutton {
+  border: none;
+  color: gray;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "Gill Sans", sans-serif;
+}
+/*p in mainpage*/
+.mainpagedetail p {
+font-size: 25px;
+  color: gray;
+  font-family: "Gill Sans", sans-serif;
+  text-align: center;
+}
+
+/*Write your comment button*/
+.bdisbutton {
+  color: gray;
+  text-align: center;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 25px;
+  cursor: pointer;
+  font-family: "Gill Sans", sans-serif;
+}
+/*Discussion div*/
+.discuss {
+  border-top: 1px solid #6DC7D0;
+  border-bottom: 1px solid #6DC7D0;
+  border-left: 1px solid #6DC7D0;
+  border-right: 1px solid #6DC7D0;
+  margin-bottom: 5px;
+  width: 95%;
+  margin: auto;
+}
+
+.mainpageplease p {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  color: gray;
+  font-size: 50px;
+  font-family: "Gill Sans", sans-serif;
+  text-align: center;
+}
+/*Text area*/
+.textcontent {
+  width: 80%;
+}
+/*submit button in writeyourcomment*/
+.bsubbutton {
+  border: 0;
+  background-color: #F8F8F8;
+  color: gray;
+  font-size: 25px;
+  border-color: black;
+  cursor: pointer
+}
+/*more button in writeyourcomment*/
+.morebutton {
+  width: 30%;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+  letter-spacing: 2px;
+  color: gray;
+  transition: all 0.3s linear;
+}
+
+
+.present{
+	width: 100%;
+	height:500px;
+	
+	
+}
+
+/* Mobile */
+@media (max-width: 320px) {
+  .logotext {
+    width: 30%;
+    height: 20%;
+    float: left;
+    color: #fff;
+    font-weight: bold;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-right: auto;
+    text-align: left;
+    padding-top: 15px;
+    font-size: 15px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+  }
+  nav {
+    background-color: #5D5E5D;
+    float: left;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5D5E5D;
+    font-size: 10px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+  }
+  .logopicture {
+    width: auto;
+    height: auto;
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .mainpagepicture {
+    max-width: 250px;
+    max-height: 200px;
+  }
+  .button {
+    width: 30%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 4px;
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+    letter-spacing: 2px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    transition: all 0.3s linear;
+  }
+  .button:hover {
+    background-color: #6DC7D0;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  .copyright {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-family: "averia-sans-libre";
+    text-transform: uppercase;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    border-top-width: 2px;
+  }
+  .thumbnail {
+    width: 98%;
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 3px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .bbutton {
+    font-size: 10px;
+  }
+  .cardsindetail {
+    max-width: 150px;
+    display: block;
+    margin: auto;
+  }
+  .bdisbutton {
+    color: gray;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: "Gill Sans", sans-serif;
+  }
+
+  .mainpagedetail p {
+    font-size: 12px;
+  }
+
+  .bsubbutton {
+    font-size: 15px;
+  }
+  .mainpageplease p {
+ padding-top: 100px;
+  padding-bottom: 100px;
+    color: gray;
+    font-size: 20px;
+    font-family: "Gill Sans", sans-serif;
+    text-align: center;
+  }
+  .morebutton {
+    font-size: 15px;
+  }
+}
+
+
+/* Small Tablets */
+@media (min-width: 321px)and (max-width: 767px) {
+  .logotext {
+    width: 30%;
+    height: 20%;
+    float: left;
+    color: #fff;
+    font-weight: bold;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-right: auto;
+    text-align: left;
+    padding-top: 15px;
+    font-size: 15px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5D5E5D;
+    font-size: 15px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+  }
+  .logopicture {
+    width: auto;
+    height: auto;
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .mainpagepicture {
+    width: 100%;
+    height: 100%;
+  }
+  .button {
+    width: 30%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+    letter-spacing: 2px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    transition: all 0.3s linear;
+  }
+  .button:hover {
+    background-color: #6DC7D0;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  .copyright {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: "averia-sans-libre";
+    text-transform: uppercase;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    border-top-width: 2px;
+  }
+  .thumbnail {
+    width: 48%;
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 8px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .bbutton {
+    font-size: 14px;
+  }
+  .cardsindetail {
+    max-width: 250px;
+    display: block;
+    margin: auto;
+  }
+
+  .mainpagedetail p {
+    font-size: 15px;
+  }
+
+  .bdisbutton {
+    color: gray;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: "Gill Sans", sans-serif;
+  }
+  .bsubbutton {
+    font-size: 20px;
+  }
+  .mainpageplease p {
+   padding-top: 100px;
+  padding-bottom: 100px;
+    color: gray;
+    font-size: 30px;
+    font-family: "Gill Sans", sans-serif;
+    text-align: center;
+  }
+  .morebutton {
+    font-size: 20px;
+  }
+}
+/* Small Desktops */
+@media (min-width: 768px) and (max-width: 1096px) {
+  .logotext {
+    width: 30%;
+    height: 20%;
+    float: left;
+    color: #fff;
+    font-weight: bold;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-right: auto;
+    text-align: left;
+    padding-top: 15px;
+    font-size: 20px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5D5E5D;
+    font-size: 20px;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+  }
+  .logopicture {
+    width: auto;
+    height: auto;
+    max-width: 60px;
+    max-height: 60px;
+  }
+  .mainpagepicture {
+    max-width: 600px;
+    max-height: 500px;
+  }
+  .button {
+    width: 30%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+    letter-spacing: 2px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    transition: all 0.3s linear;
+  }
+  .button:hover {
+    background-color: #6DC7D0;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  .copyright {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: "averia-sans-libre";
+    text-transform: uppercase;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    border-top-width: 2px;
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 8px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .bbutton {
+    font-size: 15px;
+  }
+  .cardsindetail {
+    max-width: 400px;
+    display: block;
+    margin: auto;
+  }
+  .bdisbutton {
+    color: gray;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: "Gill Sans", sans-serif;
+  }
+
+  .mainpagedetail p {
+    font-size: 16px;
+  }
+
+	  .mainpageplease p {
+   padding-top: 100px;
+  padding-bottom: 100px;
+    color: gray;
+    font-size: 40px;
+    font-family: "Gill Sans", sans-serif;
+    text-align: center;
+  }
+  .bsubbutton {
+    font-size: 25px;
+  }
+  .morebutton {
+    font-size: 25px;
+  }
+}

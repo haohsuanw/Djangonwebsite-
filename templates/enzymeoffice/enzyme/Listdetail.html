@@ -1,0 +1,50 @@
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}List detail{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+
+  <div class="mainpagedetail">
+    <dl class="backbutton">
+      <dt><a href="{% url "enzyme:enzyme_offic_list" %}" class="bbutton">Back to LAST PAGE</a></dt>
+      <dd></dd>
+    </dl>
+       {% for work in workdetail %}
+
+
+    <dl>
+      <dt></dt>
+      <dd> <img src="{% static work.imgposition %}" alt="" class="cardsindetail"/> </dd>
+    </dl>
+    <dl>
+      <dt></dt>
+      <dd>
+        <p>{{work.title}}</p>
+        <p>Artist: {{ work.author }}</p>
+        <p>Preset date:{{work.createdate}}</p>
+        <p>Description:{{work.description}}</p>
+
+      </dd>
+    </dl>
+
+    <!-- ...Work Detail ... -->
+
+   {% if request.session.is_login %}
+        <a href="{% url "enzyme:enzyme_offic_Add" work.id %}" class="bdisbutton">Write your comment</a>
+
+        {% else %}
+        <a href="{% url "enzyme:enzyme_offic_alternative" %}" class="bdisbutton">Write your comment</a>
+
+        {% endif %}
+
+        <!-- ...Button to comment pages ... -->
+       {% endfor %}
+  </div>
+
+
+{% endblock %}
+

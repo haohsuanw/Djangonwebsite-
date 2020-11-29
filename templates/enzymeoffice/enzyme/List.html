@@ -1,0 +1,39 @@
+
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}List{% endblock %}
+
+{%block script %}<script src="{% static "script/gallery.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+  <div class="mainpage">
+        <div class="search">
+		        <!-- ...Search function ... -->
+
+      <form method="get" action="{% url "enzyme:enzyme_offic_searchresult" %}" id="form">
+        <input type="text" class="searchtype" name="search" placeholder="deer">
+        <button type="submit" class="searchbutton">search</button>
+      </form>
+    </div>
+      <a href="?order_by=createdate"class="bbutton">Sorted by createdate  </a>
+      <a href="?order_by=title"class="bbutton">Sorted by title  </a>
+      <a href="?order_by=author"class="bbutton">Sorted by author</a>
+
+    <dl class="gallery" id="gallery">
+      <!-- ...work gallery... -->
+      <dt></dt>
+
+         {% for work in worklist %}
+                <dd class="thumbnail"> <a href="{% url work.url work.id %}"><img src="{% static work.imgposition %}" alt=""  class="cards"/></a>
+        <h4>{{ work.title }}</h4>
+      </dd>
+
+        {% endfor %}
+
+
+    </dl>
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Search result{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/search.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+      <mainpage class="mainpageplease">
+	  	<div class="backbutton">
+    <a href="./list" class="bbutton">Back to LAST PAGE</a>
+	</div>
+	  <div class="present">
+
+
+		  <p id="present"></p>
+
+	  </div>
+  </mainpage>
+
+{% endblock %}
+
+
+

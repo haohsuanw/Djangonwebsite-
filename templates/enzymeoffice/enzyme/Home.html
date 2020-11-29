@@ -1,0 +1,37 @@
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Home{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+
+    <div class="mainpage">
+
+    <dl class="mainpagepicturediv">
+      <!-- ...main img ... -->
+
+      <dt>  <img src="{% static "img/mainpag.png" %}" alt=""   class="mainpagepicture"/>
+
+</dt>
+		<dd></dd>
+	  </dl>
+
+
+
+
+  </div>
+    {% if request.session.is_login %}
+      {% for action in actions %}
+          <a href="/users/profile/{{ action.user.username }}" style="color: black">{{ action.user.username }}</a> {{ action.verb }} <a href="{{action.target.get_absolute_url}}" style="color: black" >{{ action.target.work }}</a>  {{ action.created }}
+          <p></p>
+          {% empty %}
+          No activity yet
+
+          {% endfor %}
+              {% endif %}
+
+{% endblock %}
+

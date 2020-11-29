@@ -1,0 +1,67 @@
+{% load static %}
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enzymeoffice|{%block page-title %}-{% endblock %}|</title>
+<script src="{% static "script/jquery-3.5.1.min.js" %}"></script>
+
+{%block script %}{% endblock %}
+<link href="{% static "css/p51.css" %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="logo">
+      <div class="logopicturediv"> <img src="{% static "img/ENZYME.png" %}" alt=""   class="logopicture"/></div>
+      <div  class="logotextdiv">
+        <h1  class="logotext">Enzyme Office</h1>
+      </div>
+
+    </div>
+    <nav>
+      <ul>
+
+          {% if request.session.is_login %}
+              <li><a href="      {% url "users:enzyme_offic_logout" %}">Logout</a></li>
+              <li><a href="      {% url "enzyme:enzyme_offic_dashboard" %}">Dashboard</a></li>
+      {% if request.session.role == "admin"%}<!-- ...if the user is admin or not... -->
+              <li><a href="      {% url "users:enzyme_offic_change" %}">Change</a></li>
+                {% endif %}
+
+
+        {% else %}
+              <li><a href="{% url "users:enzyme_offic_loginpage" %}">Log in / Sign up</a></li>
+
+        {% endif %}
+
+        <li><a href="{% url "enzyme:enzyme_offic_list" %}">Work</a></li>
+        <li><a href="{% url "enzyme:enzyme_offic_home" %}">Home</a></li>
+
+        <!-- ...navigation menu ... -->
+
+      </ul>
+    </nav>
+  </header>
+{% if messages %}
+<ur class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ur>
+{% endif %}
+    {% block mainpage %}{% endblock %}
+
+  <footer>
+    <div class="button">Cooperate with us</div>
+    <div class="copyright">&copy;2020 - <strong>Enzyme Office</strong>
+
+
+
+    </div>
+  </footer>
+</div>
+</body>
+</html>

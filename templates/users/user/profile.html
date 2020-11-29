@@ -1,0 +1,97 @@
+
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Profile for {{ user.username }}{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+
+
+
+
+
+
+<div class="mainpageplease">
+    {% if request.session.is_login %}
+      {% for action in actions %}
+          {% if action.user.username == request.session.username %}
+
+          <a href="/users/profile/{{ action.user.username }}" style="color: black">{{ action.user.username }}</a> {{ action.verb }} <a href="{{action.target.get_absolute_url}}" style="color: black" >{{ action.target.work }}</a>  {{ action.created }}
+              {% endif %}
+
+          {% empty %}
+          No activity yet
+
+          {% endfor %}
+              {% endif %}
+
+
+
+<p>Profile for {{ user.username }}</p>
+    <p>Role:{{ user.detail.role }}</p>
+<p>Username:{{ user.username }}</p>
+<p>Email:{{ user.email }}</p>
+<p>Lastname:{{user.last_name }}</p>
+<p>Firstname:{{ user.first_name }}</p>
+
+
+
+          {% if request.session.username == user.username %}<!-- ...if the user is admin or not... -->
+ <form method="post" action="" id="form1">
+        <p>Change YOUR dataset</p>
+            <input type="hidden"id="type"lass="edittype" name="type" form="form1"  value="data">
+        <input type="hidden"id="name"lass="edittype" name="name" form="form1"  value="{{user.username}}">
+            <p>Email:<input type="email"id="email"lass="edittype" name="email" form="form1"  value="{{user.email}}"></p>
+            <p>Lastname:<input type="text"id="lastname"lass="edittype" name="lastname" form="form1"  value="{{user.last_name}}"></p>
+            <p>Firstname:<input type="text"id="firstname"lass="edittype" name="firstname" form="form1"  value="{{user.first_name}}"></p>
+          {% csrf_token %}
+        <button type="submit" class="accountbutton">submit change</button>
+           <!-- ...send the edit message request... -->
+
+
+
+      </form>
+
+
+
+
+    <form method="post" action="" id="form">
+        <p>Change YOUR Password</p>
+        <input type="hidden"id="type"lass="edittype" name="type" form="form"  value="password">
+
+        <input type="hidden"id="name"lass="edittype" name="name" form="form"  value="{{user.username}}">
+        <input type="password"id="name"lass="edittype" name="password" form="form">
+              {% csrf_token %}
+        <button type="submit" class="accountbutton">submit change</button>
+           <!-- ...send the edit message request... -->
+
+
+
+      </form>
+
+
+
+
+
+                {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+{% endblock %}
+
+
+

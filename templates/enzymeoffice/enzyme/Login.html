@@ -1,0 +1,58 @@
+
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Loginpage{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+
+
+<div class="mainpageplease">
+
+
+	
+    <dl style="text-align:center; padding-top: 100px;padding-bottom: 100px; ">
+      {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+   <form method="post" action="" id="form">
+
+           <dl class="backbutton">
+      <dt><a href="{% url "users:enzyme_offic_register" %}" class="bbutton">  <p>Log in or click me to register</p></a></dt>
+      <dd></dd>
+    </dl>
+        {% csrf_token %}
+
+
+
+         <input type="text" class="accountype" name="username" id="username" placeholder="your account name">
+	     <input type="text" class="accountype" name="password" id="password" placeholder="Password">
+
+        <button type="submit" class="accountbutton">Log in</button>
+      </form>
+	<!-- ...login form... -->
+
+
+
+
+
+	</dl>
+
+
+
+
+
+
+  </div>
+
+{% endblock %}
+
+
+

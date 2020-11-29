@@ -1,0 +1,68 @@
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Dashboard{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+{% if messages %}
+<ur class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ur>
+{% endif %}
+  <div class="mainpagedetail">
+     {% if commentlist == "x"%}
+<p>There are no any comment</p>
+     {% else %}
+ {% for comment in commentlist %}
+
+
+
+
+
+        <tr><!-- ...pressent the comment in dashboard... -->
+
+
+
+              <form method="post" action="" id="{{comment.username}} ">
+            <p>Username:<input type="text"id="name"lass="edittype" name="name" form="{{comment.username}} "  value="{{comment.username}}"></p>
+            <p>Email:<input type="email"id="email"lass="edittype" name="email" form="{{comment.username}} "  value="{{comment.email}}"></p>
+            <p>Lastname:<input type="text"id="lastname"lass="edittype" name="lastname" form="{{comment.username}} "  value="{{comment.last_name}}"></p>
+            <p>Firstname:<input type="text"id="firstname"lass="edittype" name="firstname" form="{{comment.username}} "  value="{{comment.first_name}}"></p>
+            <p>Role:{{comment.detail.role}}  </p>
+                  <select name="role">
+         　 <option value="Regular">Regular</option>
+　          <option value="admin">admin</option>
+            </select>
+              {% csrf_token %}
+
+
+
+        <button type="submit" class="accountbutton">submit change</button>
+           <!-- ...send the edit message request... -->
+
+
+
+      </form>
+
+
+
+
+
+
+            </td>
+        </tr>
+
+
+
+        {% endfor %}
+{% endif %}
+	</div>
+{% endblock %}
+
+
+

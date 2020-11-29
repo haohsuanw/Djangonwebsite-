@@ -1,0 +1,43 @@
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Edit{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+
+  <div class="mainpagedetail">
+    <dl style="text-align:center; padding-top: 100px;padding-bottom: 100px; ">
+
+  <form method="post" action="" id="form">
+
+        {% csrf_token %}
+       {% for edit in editlist %}<!-- ...present the target edit comment... -->
+
+            <p>Title:{{edit.work}}<input type="hidden"id="work" class="edittype" name="work" form="form" value="{{edit.work}}" readonly></p>
+            <p>Username:{{edit.username}}<input type="hidden"id="username" class="edittype" name="username" form="form" value="{{edit.username}}" readonly> </p>
+            <input type="hidden"id="id"lass="edittype" name="id"form="form"  value="{{edit.id}}" readonly>
+           <p>Name:<input type="text"id="name"lass="edittype" name="name"form="form"  value="{{edit.name}}"></p>
+            <p>Age:<input type="number"id="age"lass="edittype" name="age"form="form"  value="{{edit.Age}}"></p>
+            <p>Comment:<input type="text" id="commentedit"lass="edittype" name="commentedit"form="form"  value="{{edit.comment}}">  </p>
+
+
+
+
+        <button type="submit" class="accountbutton">submit your edit</button>
+           <!-- ...send the edit message request... -->
+
+              {% endfor %}
+
+      </form>
+
+    </dl>
+
+
+	</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,69 @@
+
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Register User{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+
+
+<div class="mainpageplease">
+
+
+
+    <dl style="text-align:center; padding-top: 100px;padding-bottom: 100px; ">
+      {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    {% if messages %}
+<ur class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ur>
+{% endif %}
+   <form method="post" action="{% url 'users:enzyme_offic_register' %}" id="register">
+     <h1>Required.=*</h1>
+        {% csrf_token %}
+
+
+         <label for="registerLastname"><h4>Lastname*</h4></label>
+	     <input type="text" name="registerLastname" id="registerLastname" placeholder="Lastname" required>
+         <label for="registerFirstname"><h4>Firstname*</h4></label>
+         <input type="text" name="registerFirstname" id="registerFirstname" placeholder="Firstname" required>
+
+         <label for="registeremail"><h4>Email*</h4></label>
+	     <input type="email" name="registeremail" id="registeremail" placeholder="email" required>
+         <label for="registerusername"><h4>Username*</h4></label>
+         <input type="text"  name="registerusername" id="registerusername" placeholder="your account name" required>
+         <label for="registerpassword"><h4>Password*</h4></label>
+	     <input type="password" name="registerpassword" id="registerpassword" placeholder="Password" required>
+
+        <button type="submit" class="accountbutton">Sign Up</button>
+      </form>
+	<!-- ...login form... -->
+
+
+
+
+
+	</dl>
+
+
+
+
+
+
+  </div>
+
+{% endblock %}
+
+
+

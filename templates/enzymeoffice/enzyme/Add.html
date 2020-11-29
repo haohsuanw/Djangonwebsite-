@@ -1,0 +1,85 @@
+
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Add{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/scriq12345.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+           {% for work in workdetail %}
+
+  <div class="mainpagedetail">
+    <dl class="backbutton">
+      <!-- ...Back to the last page button... -->
+
+      <dt></dt>
+      <dd> <a href="{% url "enzyme:enzyme_offic_listdetail" work.id  %}" class="bbutton">Back to LAST PAGE</a> </dd>
+    </dl>
+    <dl>
+      <dt></dt>
+      <dd>
+        <p>{{work.title}}</p>
+        <p>Artist: {{ work.author }}</p>
+        <p>Preset date:{{work.createdate}}</p>
+        <p>Description:{{work.description}}</p>
+      </dd>
+    </dl>
+
+    <!-- ...Work Detail ... -->
+
+
+      <dt></dt>
+      <dd name="load" class="load" id="load" style="background-color: #5D5E5D;">
+          <div class="button" worktitle="{{work.title}}" id="loadcomment" data-ajax-url="{% url "enzyme:enzyme_offic_loadcomment" %}">Load Other's Review</div>
+      </dd>
+
+
+
+
+      <dd></dd>
+
+
+	  <dl>
+
+	  <dd name ="warning" id="warning">      <p> Your review：</p></dd>
+          <dd name="reload" class="reload" id="reload">
+                {% if messages %}
+<ur class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ur>
+{% endif %}
+
+
+          </dd>
+
+
+	  </dl>
+
+    <form data-ajax-url1="{% url "enzyme:enzyme_offic_savecomment" %}"method="POST" name="content" id="content">
+      <!-- ...Submit your comment ... -->
+        {% csrf_token %}
+
+      <div style="text-align:center;">
+		 <dl></dl>
+         <input type="hidden"id="work" class="edittype" name="work" form="content" value="{{work.title}}" readonly>
+          <input type="hidden"id="id"lass="edittype" name="id"form="content"  value="{{work.id}}" readonly>
+          <p>Name:<input type="text"id="name"lass="edittype" name="name"form="content"></p>
+          <p>Age:<input type="number"id="age"lass="edittype" name="age"form="content"></p>
+
+           <p>Comment:<textarea  name="textcontent" class="textcontent" id="textcontent" form="content"></textarea></p>
+      </div>
+      <div style="text-align:center;" id="deletethisaftersubmit">
+		  <button type="submit"  Class="searchbutton" id="submitbutton">Submit</button>
+      </div>
+
+    </form>
+  </div>
+       {% endfor %}
+
+
+{% endblock %}
+

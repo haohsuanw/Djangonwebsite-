@@ -1,0 +1,69 @@
+{% extends "enzymeoffice/base.html" %}
+{% load static %}
+{% block page-title %}Dashboard{% endblock %}
+
+
+
+{%block script %}<script src="{% static "script/script.js" %}"></script>{% endblock %}
+
+{% block mainpage %}
+
+
+{% if messages %}
+<ur class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ur>
+{% endif %}
+
+
+  <div class="mainpagedetail">
+
+
+     {% if commentlist == "x"%}
+<p>There are no any comment</p>
+     {% else %}
+
+ {% for comment in commentlist %}
+
+
+
+
+
+        <tr><!-- ...pressent the comment in dashboard... -->
+
+
+            <p>Title: {{comment.work}}  </p>
+            <p>Username:{{comment.username}}  </p>
+            <p>Name:{{comment.name}}  </p>
+            <p>Age:{{comment.Age}}  </p>
+            <p>Comment:{{comment.comment}}  </p>
+            <p>Date:{{comment.date_posted}}  </p>
+
+            <td>
+                <a href="{% url "enzyme:enzyme_offic_edit" comment.id %}" title="edit"><p>edit</p></a>
+                {% if request.session.role == "admin"%}<!-- ...if the user is admin or not... -->
+
+                    <a href="{% url "enzyme:enzyme_offic_delete" comment.id %}" title="delete"><p>delete</p></a>
+
+                {% endif %}
+
+
+
+
+
+            </td>
+        </tr>
+
+
+
+        {% endfor %}
+{% endif %}
+             <a href="      {% url "users:enzyme_offic_profile" request.session.username  %}"><p style="font-size: 50px">Your Profile</p></a>
+
+	</div>
+{% endblock %}
+
+
+
