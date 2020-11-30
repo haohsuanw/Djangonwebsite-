@@ -43,11 +43,9 @@
 
             <td>
                 <a href="{% url "enzyme:enzyme_offic_edit" comment.id %}" title="edit"><p>edit</p></a>
-                {% if request.session.role == "admin"%}<!-- ...if the user is admin or not... -->
+                <a href="{% url "enzyme:enzyme_offic_delete" comment.id %}" title="delete"><p>delete</p></a>
 
-                    <a href="{% url "enzyme:enzyme_offic_delete" comment.id %}" title="delete"><p>delete</p></a>
 
-                {% endif %}
 
 
 

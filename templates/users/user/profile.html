@@ -17,7 +17,7 @@
 <div class="mainpageplease">
     {% if request.session.is_login %}
       {% for action in actions %}
-          {% if action.user.username == request.session.username %}
+          {% if action.user.username == user.username %}
 
           <a href="/users/profile/{{ action.user.username }}" style="color: black">{{ action.user.username }}</a> {{ action.verb }} <a href="{{action.target.get_absolute_url}}" style="color: black" >{{ action.target.work }}</a>  {{ action.created }}
               {% endif %}
