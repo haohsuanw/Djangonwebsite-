@@ -49,6 +49,7 @@ def register(request):
             user.last_name = last_name
             user.first_name = first_name
             user.save()
+            request.session['role'] = user.detail.role
             messages.add_message(request, messages.SUCCESS,
                                  "You successful registered with the username: %s" % user.username)
             return redirect('enzyme:enzyme_offic_home')
@@ -71,6 +72,8 @@ def enzyme_office_login(request):
 
         username = request.POST['username']
         password = request.POST['password']
+
+
         user = authenticate(username=username, password=password)
         if user is not None:
             request.session['username'] = user.username

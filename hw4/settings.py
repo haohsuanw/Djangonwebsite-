@@ -25,7 +25,10 @@ SECRET_KEY = 'au(!6&h=se4)xh_^42!92108xyk7sz6d+09v@#3nyw4!2g8jbt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+'''
 
+
+'''
 ALLOWED_HOSTS = ['cs5774proj6haohsuan.herokuapp.com','127.0.0.1']
 
 
