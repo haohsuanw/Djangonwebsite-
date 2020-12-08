@@ -89,7 +89,7 @@ def enzyme_office_Add(request,id):
 def savecomment(request):
 
     is_ajax=request.headers.get('x-requested-with') == 'XMLHttpRequest'
-    commentlist = models.comment.objects.all()
+    commentlist = models.comment.objects.all().order_by('id')
 
     if is_ajax and request.method == "POST" and request.session['is_login']:
         title = request.POST.get('work')
@@ -103,7 +103,7 @@ def savecomment(request):
             work = request.POST['work']
             comment = request.POST['text']
             username = request.session['username']
-            id = len(commentlist) + 1
+            id = commentlist[len(commentlist)-1].id +1
             nc = models.comment(
                 name=name,
                 Age=age,

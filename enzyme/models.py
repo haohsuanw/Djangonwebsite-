@@ -30,6 +30,7 @@ class work(models.Model):
     author=models.TextField(max_length=100)
     createdate=models.DateField(auto_now_add=True)
     description=models.TextField(max_length=100)
+    country=models.TextField(max_length=100)
 
 
 
