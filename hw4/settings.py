@@ -29,7 +29,7 @@ DEBUG = True
 
 
 '''
-ALLOWED_HOSTS = ['cs5774proj6haohsuan.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['cs5774haohsuan.herokuapp.com','127.0.0.1']
 
 
 # Application definition
