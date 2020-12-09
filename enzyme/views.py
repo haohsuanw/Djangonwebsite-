@@ -1,3 +1,5 @@
+import json
+
 from django.db.models.functions import Lower
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib import auth
@@ -8,6 +10,8 @@ from enzyme import models
 from .models import comment,work
 from django.contrib.auth.models import User
 from datetime import date
+import requests
+
 
 from django.core import serializers
 
@@ -100,7 +104,7 @@ def savecomment(request):
             age = request.POST['age']
             name = request.POST['name']
 
-            work = request.POST['work']
+            workhere = request.POST['work']
             comment = request.POST['text']
             username = request.session['username']
             id = commentlist[len(commentlist)-1].id +1
@@ -108,7 +112,7 @@ def savecomment(request):
                 name=name,
                 Age=age,
                 id=id,
-                work=work,
+                work=workhere,
                 username=username,
                 comment=comment,
                 date_posted=date.today()
@@ -127,13 +131,54 @@ def savecomment(request):
 
             messages.add_message(request, messages.SUCCESS, "You successfuly submit your comment")
             # meassage
-            aftersave=[]
 
-            commentlist = models.comment.objects.filter(work=work)
-            for comment in commentlist:
-                aftersave.append(comment.name + ":" + comment.comment)
+
+            # Azure Translator
+
+            worklocation=work.objects.get(title=workhere).country
+            if worklocation=="Russian":
+                endpoint='https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=ru'
+            elif worklocation=="Thai":
+                endpoint='https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=th'
+            elif worklocation=="Japan":
+                endpoint='https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=ja'
+
+            headers = {
+                # Request headers
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Ocp-Apim-Subscription-Key': 'aadbb069b24b45a3807f56b5b2357af6',
+            }
+
+            body = [{
+                'text': comment
+            }]
+
+            respons=requests.post(endpoint,headers=headers,json=body)
+            respons_json=respons.json()
+
+            aftersave = []
+
+            if type(respons_json) is dict:
+                #prevent error
+                commentlist = models.comment.objects.filter(work=workhere).order_by('id')
+                for comments in commentlist:
+                    aftersave.append(comments.name + " : " + comments.comment)
+                aftersave.append("you save successfully, but somethings wrong with the Microsoft Azure")
+            else:
+                langcomment = respons_json[0]['translations'][0]['text']
+
+                commentlist = models.comment.objects.filter(work=workhere).order_by('id')
+                for comments in commentlist:
+                    if comments.comment == comment:
+                        aftersave.append(comments.name + " : " + comments.comment+" Author's Language: "+langcomment)
+                    else:
+                        aftersave.append(comments.name + " : " + comments.comment)
+
+
 
             return JsonResponse({'success': 'success', 'commentlist': aftersave}, status=200)
+
+
         except models.comment.DoesNotExist:
             return JsonResponse({'error': 'No comment with the work'}, status=200)
     else:
