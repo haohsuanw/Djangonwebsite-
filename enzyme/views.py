@@ -58,8 +58,8 @@ def enzyme_office_dashboard(request):
 def enzyme_office_list(request):
     if request.method == 'GET':
         order_by = request.GET.get('order_by')
-        ordering = Lower(order_by)
-        worklist=work.objects.all().order_by(ordering)
+
+        worklist=work.objects.all().order_by(order_by)
 
 
     return render(request,"enzymeoffice/enzyme/List.html", {"worklist": worklist})
