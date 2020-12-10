@@ -16,7 +16,7 @@ $(document).ready(function () {
     setTimeout(
       function () {
 
-        window.location.href = "./listdetail";
+        window.location.href = "./listdetail/1";
 		  //redirect to target page
 
 
