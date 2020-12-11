@@ -19,7 +19,7 @@
 
 
   <div class="mainpagedetail">
-
+      <a href="      {% url "users:enzyme_offic_profile" request.session.username  %}"><p style="font-size: 50px">Your Profile</p></a>
 
      {% if commentlist == "x"%}
 <p>There are no any comment</p>
@@ -58,7 +58,6 @@
 
         {% endfor %}
 {% endif %}
-             <a href="      {% url "users:enzyme_offic_profile" request.session.username  %}"><p style="font-size: 50px">Your Profile</p></a>
 
 	</div>
 {% endblock %}
